@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ToggleInput, Tooltip } from "@strapi/design-system";
+import { ToggleInput } from "@strapi/design-system";
 
 const MyToggleButton = ({ value, onChange, name }) => {
   const [checked, setChecked] = useState(value || true);
@@ -8,28 +8,19 @@ const MyToggleButton = ({ value, onChange, name }) => {
       hint="This is your hint"
       label="This is your label"
       name="togglebutton"
-      labelAction={
-        <Tooltip description="Content of the tooltip">
-          <button
-            aria-label="Information about the email"
-            style={{
-              border: "none",
-              padding: 0,
-              background: "transparent",
-            }}
-          ></button>
-        </Tooltip>
-      }
       onLabel="On" // Here you can customize the on label for this component
       offLabel="Off" // Here you can customize the off label for this component
       checked={checked}
       onChange={(e) => {
+        // set the value of the state
         setChecked(e.target.checked);
+
+        // invoke the onChange function that is destructured from our component props on line 4
         onChange({
           target: {
-            value: checked,
-            name: name,
-            type: attribute.type,
+            value: checked, // use the state value
+            name: name, // use the name of the field as created in the Content Type Builder
+            type: attribute.type, // use the type as defined when registering the custom field
           },
         });
       }}

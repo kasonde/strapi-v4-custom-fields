@@ -3,7 +3,6 @@ import pluginPkg from "../../package.json";
 import pluginId from "./pluginId";
 import Initializer from "./components/Initializer";
 import PluginIcon from "./components/PluginIcon";
-import MyToggleButton from "./components/MyToggleButton.js";
 
 const name = pluginPkg.strapi.name;
 
@@ -17,18 +16,21 @@ export default {
     });
     app.customFields.register({
       name: "togglebutton",
-      pluginId: "toggle-button", // the custom field is created by a color-picker plugin
-      type: "boolean", // the color will be stored as a string
+      pluginId: "toggle-button", // the custom field is created by a toggle-button plugin
+      type: "boolean", // the datatype which should store your value
       intlLabel: {
         id: "toggle-button.togglebutton.label",
-        defaultMessage: "Toggle",
+        defaultMessage: "Toggle", // This can be any Label
       },
       intlDescription: {
         id: "toggle-button.togglebutton.description",
-        defaultMessage: "Select any state",
+        defaultMessage: "Select any state", // This can be any description
       },
+      // The intl label and intl description are for when you are adding the field to your content type.
       icon: PluginIcon, // don't forget to create/import your icon component
       components: {
+        // You need to use the syntax shown below to reference your component, otherwise it'll appear as not supported in the admin
+        // When you import your component here: the component gets props passed into it to aid how you interact with your data. View the component to see the two I've used.
         Input: async () => import("./components/MyToggleButton"),
       },
       options: {

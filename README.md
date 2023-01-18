@@ -1,57 +1,21 @@
-# 🚀 Getting started with Strapi
+# Getting started with Custom Fields 🚀
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+This is a simple guide that shows you how to create a custom field. In order to do this, I created a plugin called toggle button. This plugin was enabled in `./config/plugins.js`.
 
-### `develop`
+# Running the application
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
+- Install the dependencies for this project by running `npm install` or `yarn` in the project directory.
+- Copy the `.env.example` file contents to a `.env` file you must create
+- Run yarn develop to run the application.
+- If you want to make changes to the plugin (and Strapi admin inturn) without having to stop your server and running `yarn build`, run `yarn develop --watch-admin`.
 
-```
-npm run develop
-# or
-yarn develop
-```
+# Details
 
-### `start`
+The custom fields uses the `ToggleInput` component from our [Design System](https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-components-toggleinput--base) to render a boolean field in the content manager. If you want to know more about customizing the `ToggleInput`, please view our design system.
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
+## Things to note
 
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://docs.strapi.io) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+1. Review all comments I placed in the `admin's register.js` and the `MyToggleButton.js` files.
+2. Ensure use suitable datatypes for you custom field. Review our docs on what fields are not allowed.
+3. When registering your custom field, do NOT use a 'space' in the value of the name parameter.
+4. Create something cool :)
