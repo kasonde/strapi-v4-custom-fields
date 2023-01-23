@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { ToggleInput } from "@strapi/design-system";
 
-const MyToggleButton = ({ value, onChange, name }) => {
-  const [checked, setChecked] = useState(value || true);
+const MyToggleButton = ({ value, onChange, name, attribute }) => {
+  const [checked, setChecked] = useState(value ?? true);
+
   return (
     <ToggleInput
       hint="This is your hint"
@@ -18,7 +19,7 @@ const MyToggleButton = ({ value, onChange, name }) => {
         // invoke the onChange function that is destructured from our component props on line 4
         onChange({
           target: {
-            value: checked, // use the state value
+            value: e.target.checked, // use the value of the checked.
             name: name, // use the name of the field as created in the Content Type Builder
             type: attribute.type, // use the type as defined when registering the custom field
           },
